@@ -29,6 +29,8 @@ public class KafkaProducerConfig {
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JacksonJsonSerializer.class);
+        config.put(JacksonJsonSerializer.TYPE_MAPPINGS,
+                "approvalDecision:com.leaveflow.approval_service.event.ApprovalDecisionEvent");
         return new DefaultKafkaProducerFactory<>(config);
     }
 

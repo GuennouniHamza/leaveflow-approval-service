@@ -8,6 +8,6 @@ import com.leaveflow.approval_service.dto.EmployeeDTO;
 
 @FeignClient(name="employee-service", url ="${employee-service.url}")
 public interface EmployeeClient {
-@GetMapping("/api/employee/{id}")
+@GetMapping("/api/employees/{id}")
 EmployeeDTO getById(@PathVariable Long id);
 }

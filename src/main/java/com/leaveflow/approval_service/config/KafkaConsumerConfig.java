@@ -31,6 +31,8 @@ public class KafkaConsumerConfig {
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JacksonJsonDeserializer.class);
         config.put(JacksonJsonDeserializer.TRUSTED_PACKAGES, "*");
+        config.put(JacksonJsonDeserializer.TYPE_MAPPINGS,
+                "leaveRequested:com.leaveflow.approval_service.event.LeaveRequestedEvent");
         return new DefaultKafkaConsumerFactory<>(config);
     }
     /* btw deserializer json to object && serializer object to json */

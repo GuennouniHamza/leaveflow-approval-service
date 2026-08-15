@@ -29,7 +29,7 @@ public class LeaveRequestedConsumer {
 			return;
 		}
 		
-	EmployeeDTO employee =employeeClient.getById(event.getLeaveRequestId());
+	EmployeeDTO employee =employeeClient.getById(event.getEmployeeId());
 	SagaInstance saga =SagaInstance.builder()
 			.leaveRequestId(event.getLeaveRequestId())
             .employeeId(event.getEmployeeId())
