@@ -35,6 +35,7 @@ public class LeaveRequestedConsumer {
             .employeeId(event.getEmployeeId())
             .managerId(employee.getManagerId())
             .etat(EtatSaga.EN_ATTENTE_MANAGER)
+            .nombreJours(event.getNombreJours())
             .build();
 	
 	sagaInstanceRepository.save(saga);

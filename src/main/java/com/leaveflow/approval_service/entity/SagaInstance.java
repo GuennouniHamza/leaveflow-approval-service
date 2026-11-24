@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,12 +39,23 @@ public class SagaInstance {
 
     @Column(name = "manager_id")
     private Long managerId;
+    
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private EtatSaga etat;
-
-    private String commentaireDecision;
-
+    
+    	@Column(name="nombre_jours", nullable=false)
+    private Integer nombreJours;
+    	
+    	@Version
+    	private Long Version;
+    	
+    	@Column(name="commentaire_manager",length = 500)
+    	private String commentaireManager;
+    	
+    	@Column(name = "commentaire_rh", length = 500)
+    	private String commentaireRh;
+    	
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;

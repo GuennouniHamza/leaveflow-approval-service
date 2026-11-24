@@ -26,7 +26,7 @@ public class SagaServiceImpl implements SagaService {
         SagaInstance saga = sagaInstanceRepository.findById(sagaId)
                 .orElseThrow(() -> new RuntimeException("Saga introuvable : " + sagaId));
 
-        saga.setCommentaireDecision(commentaire);
+        saga.setCommentaireManager(commentaire);
 
         if (!approuvee) {
             saga.setEtat(EtatSaga.REFUSEE);
